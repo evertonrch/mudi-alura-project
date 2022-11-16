@@ -25,6 +25,13 @@ public class Pedido {
 
     public Pedido() {}
 
+    public Pedido(String nome, String urlProduto, String urlImagem, String descricao) {
+        this.nome = nome;
+        this.urlProduto = urlProduto;
+        this.urlImagem = urlImagem;
+        this.descricao = descricao;
+    }
+
     public Pedido(String nome, BigDecimal valor, LocalDate dataEntrega, String urlProduto, String urlImagem, String descricao) {
         this.nome = nome;
         this.valor = valor;
