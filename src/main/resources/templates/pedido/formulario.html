@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org"
+      lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Hello</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="container py-5 bg-light">
+                <h1 class="display-4 fw-light">Novo Pedido</h1>
+            </div>
+        </header>
+        <main>
+            <form action="/pedido/novo" method="POST">
+                <div>
+                    <label for="nomeProduto">Produto</label>
+                    <input type="text" name="nomeProduto" id="nomeProduto" placeholder="Nome do produto"/>
+                    <small>Informe o nome do produto.</small>
+                </div>
+                <div>
+                    <label for="url">Url</label>
+                    <input type="text" name="urlProduto" id="url" placeholder="Url do produto"/>
+                    <small>Procure em um site o produto que deseja e cole aqui.</small>
+                </div>
+                <div>
+                    <label for="imagem">Imagem</label>
+                    <input type="text" name="imagemProduto" id="imagem" placeholder="Imagem do produto"/>
+                    <small>Copie e cole a imagem do produto desejado.</small>
+                </div>
+                <div>
+                    <label for="desc">Descrição</label>
+                    <textarea name="descricao" id="desc" placeholder="Adicione detalhes importantes para ajudar o compradpr."></textarea>
+                </div>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </main>
+    </div>
+
+</body>
+</html>

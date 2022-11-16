@@ -15,7 +15,7 @@ public class HomeController {
     @Autowired
     private PedidoRepository pedidoRepository;
 
-    @GetMapping("/home")
+    @GetMapping("home")
     public ModelAndView home() {
         List<Pedido> pedidos = pedidoRepository.findAll();
         ModelAndView mv = new ModelAndView("home");
