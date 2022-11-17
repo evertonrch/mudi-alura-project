@@ -1,6 +1,7 @@
 package br.com.alura.mvc.mudi.dto;
 
 import br.com.alura.mvc.mudi.model.Pedido;
+import br.com.alura.mvc.mudi.model.StatusPedido;
 
 import javax.validation.constraints.NotBlank;
 
@@ -49,7 +50,15 @@ public class RequisicaoPedido {
                 '}';
     }
 
+
+
     public Pedido toPedido() {
-        return new Pedido(nomeProduto, urlProduto, imagemProduto, descricao);
+        Pedido pedido = new Pedido();
+        pedido.setNome(nomeProduto);
+        pedido.setDescricao(descricao);
+        pedido.setUrlProduto(urlProduto);
+        pedido.setUrlImagem(imagemProduto);
+        pedido.setStatus(StatusPedido.AGUARDANDO);
+        return pedido;
     }
 }

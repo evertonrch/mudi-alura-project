@@ -28,13 +28,13 @@ public class PedidoController {
     }
 
     @PostMapping("novo")
-    public String novo(@Valid RequisicaoPedido requisicaoPedido, BindingResult result) {
+    public ModelAndView novo(@Valid RequisicaoPedido requisicaoPedido, BindingResult result) {
         if(result.hasErrors()) {
-            return "pedido/formulario";
+            return new ModelAndView("pedido/formulario");
         }
 
         Pedido pedido = requisicaoPedido.toPedido();
         pedidoRepository.save(pedido);
-        return "home";
+        return new ModelAndView("redirect:/home");
     }
 }

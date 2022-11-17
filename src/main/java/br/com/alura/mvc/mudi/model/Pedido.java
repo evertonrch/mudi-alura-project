@@ -23,6 +23,9 @@ public class Pedido {
     @Column(length = 255)
     private String descricao;
 
+    @Enumerated(EnumType.STRING)
+    private StatusPedido status;
+
     public Pedido() {}
 
     public Pedido(String nome, String urlProduto, String urlImagem, String descricao) {
@@ -88,4 +91,13 @@ public class Pedido {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public StatusPedido getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusPedido status) {
+        this.status = status;
+    }
+
 }
