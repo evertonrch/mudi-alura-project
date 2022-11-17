@@ -10,37 +10,42 @@
     <title>Hello</title>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="container py-5 bg-light">
-                <h1 class="display-4 fw-light">Novo Pedido</h1>
-            </div>
-        </header>
-        <main>
-            <form action="/pedido/novo" method="POST">
-                <div>
-                    <label for="nomeProduto">Produto</label>
-                    <input type="text" name="nomeProduto" id="nomeProduto" placeholder="Nome do produto"/>
-                    <small>Informe o nome do produto.</small>
+<div class="container">
+    <header>
+        <div class="container py-5 bg-light">
+            <h1 class="display-4 fw-light">Novo Pedido</h1>
+        </div>
+    </header>
+    <main>
+        <div class="card mt-3">
+            <form th:object="${requisicaoPedido}" class="card-body" action="/pedido/novo" method="POST">
+                <div class="mb-3">
+                    <label class="form-label" for="nomeProduto">Produto</label>
+                    <input th:field="*{nomeProduto}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Nome do produto"/>
+                    <small>Informe o nome do produto.</small><br/>
+                    <small class="invalid-feedback" th:errors="*{nomeProduto}" >Error</small>
                 </div>
-                <div>
-                    <label for="url">Url</label>
-                    <input type="text" name="urlProduto" id="url" placeholder="Url do produto"/>
-                    <small>Procure em um site o produto que deseja e cole aqui.</small>
+                <div class="mb-3">
+                    <label class="form-label" for="url">Url</label>
+                    <input th:field="*{urlProduto}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Url do produto"/>
+                    <small>Procure em um site o produto que deseja e cole aqui.</small><br/>
+                    <small class="invalid-feedback" th:errors="*{urlProduto}">Error</small>
                 </div>
-                <div>
-                    <label for="imagem">Imagem</label>
-                    <input type="text" name="imagemProduto" id="imagem" placeholder="Imagem do produto"/>
-                    <small>Copie e cole a imagem do produto desejado.</small>
+                <div class="mb-3">
+                    <label class="form-label" for="imagem">Imagem</label>
+                    <input th:field="*{imagemProduto}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Imagem do produto"/>
+                    <small>Copie e cole a imagem do produto desejado.</small><br/>
+                    <small class="invalid-feedback" th:errors="*{imagemProduto}">Error</small>
                 </div>
-                <div>
-                    <label for="desc">Descrição</label>
-                    <textarea name="descricao" id="desc" placeholder="Adicione detalhes importantes para ajudar o compradpr."></textarea>
+                <div class="mb-3">
+                    <label class="form-label" for="descricao">Descrição</label>
+                    <textarea th:field="*{descricao}" class="form-control" style="max-height:100px;" placeholder="Adicione detalhes importantes para ajudar o compradpr."></textarea>
                 </div>
-                <button type="submit">Cadastrar</button>
+                <button class="btn btn-primary" type="submit">Cadastrar</button>
             </form>
-        </main>
-    </div>
+        </div>
+    </main>
+</div>
 
 </body>
 </html>
