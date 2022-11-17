@@ -11,22 +11,22 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="">Todos</a>
+                            <a th:classappend="${status} == null ? 'active'" class="nav-link" href="/home">Todos</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="">Aguardando</a>
+                            <a th:classappend="${status} == 'aguardando' ? 'active'"  class="nav-link" href="/home/aguardando">Aguardando</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="">Aprovado</a>
+                            <a th:classappend="${status} == 'aprovado' ? 'active'" class="nav-link" href="/home/aprovado">Aprovado</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="">Entregue</a>
+                            <a th:classappend="${status} == 'entregue' ? 'active'" class="nav-link" href="/home/entregue">Entregue</a>
                         </li>
                     </ul>
                 </div>
@@ -43,9 +43,9 @@
                 <div class="row">
                     <div class="col-12 col-sm-8">
                         <div class="row">
-                            <div class="col-md-5">Valor: <span th:text="${pedido.valor}">200.00</span></div>
+                            <div class="col-md-5">Valor: <span th:if="${pedido.valor} != null" th:text="${'R$ ' + #numbers.formatDecimal(pedido.valor,3,'POINT',2,'COMMA')}">200.00</span></div>
                             <div class="col-md-7">Data da entrega: <span
-                                    th:text="${pedido.dataEntrega}">10/10/2010</span>
+                                    th:text="${#temporals.format(pedido.dataEntrega, 'dd/MMM/yyyy')}">10/10/2010</span>
                             </div>
                         </div>
                         <div>Produto</div>
