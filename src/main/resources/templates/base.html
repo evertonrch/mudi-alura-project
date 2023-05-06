@@ -19,6 +19,7 @@
             font-family: 'Handlee', cursive;
             font-size: 2.5rem;
         }
+
     </style>
 </head>
 
@@ -29,7 +30,12 @@
      th:fragment="logo"
      class="container-fluid logo-container mb-3 p-3 text-white d-flex align-items-center justify-content-between">
     <span class="logo-font fw-bold">mudi</span>
-    <span>login</span>
+    <span>
+        <a class="text-light" sec:authorize="!isAuthenticated()" href="/login">login</a>
+        <a onclick="document.querySelector('#form-logout').submit()" class="text-light"
+           sec:authorize="isAuthenticated()" href="#">logout</a>
+        <form th:action="@{/logout}" method="POST" id="form-logout"></form>
+    </span>
 </div>
 
 <!--        ##########################          -->

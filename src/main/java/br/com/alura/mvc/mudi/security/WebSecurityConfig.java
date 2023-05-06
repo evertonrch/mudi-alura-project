@@ -19,7 +19,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin(form -> form.loginPage("/login").permitAll());
+                .formLogin(form -> form.loginPage("/login").permitAll())
+                .logout(logoutConfigurer -> logoutConfigurer.logoutUrl("/logout"));
     }
 
     @Bean
