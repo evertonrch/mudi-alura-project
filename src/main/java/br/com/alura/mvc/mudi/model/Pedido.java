@@ -1,9 +1,16 @@
 package br.com.alura.mvc.mudi.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "tb_pedido")
 public class Pedido {
@@ -15,7 +22,7 @@ public class Pedido {
     @Column(precision = 11, scale = 2)
     private BigDecimal valor;
     private LocalDate dataEntrega;
-    @Column(length = 255)
+    @Lob
     private String urlProduto;
     @Column(length = 255)
     private String urlImagem;
@@ -25,79 +32,4 @@ public class Pedido {
 
     @Enumerated(EnumType.STRING)
     private StatusPedido status;
-
-    public Pedido() {}
-
-    public Pedido(String nome, String urlProduto, String urlImagem, String descricao) {
-        this.nome = nome;
-        this.urlProduto = urlProduto;
-        this.urlImagem = urlImagem;
-        this.descricao = descricao;
-    }
-
-    public Pedido(String nome, BigDecimal valor, LocalDate dataEntrega, String urlProduto, String urlImagem, String descricao) {
-        this.nome = nome;
-        this.valor = valor;
-        this.dataEntrega = dataEntrega;
-        this.urlProduto = urlProduto;
-        this.urlImagem = urlImagem;
-        this.descricao = descricao;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public BigDecimal getValor() {
-        return valor;
-    }
-
-    public LocalDate getDataEntrega() {
-        return dataEntrega;
-    }
-
-    public String getUrlProduto() {
-        return urlProduto;
-    }
-
-    public String getUrlImagem() {
-        return urlImagem;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
-    }
-
-    public void setDataEntrega(LocalDate dataEntrega) {
-        this.dataEntrega = dataEntrega;
-    }
-
-    public void setUrlProduto(String urlProduto) {
-        this.urlProduto = urlProduto;
-    }
-
-    public void setUrlImagem(String urlImagem) {
-        this.urlImagem = urlImagem;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public StatusPedido getStatus() {
-        return status;
-    }
-
-    public void setStatus(StatusPedido status) {
-        this.status = status;
-    }
-
 }
